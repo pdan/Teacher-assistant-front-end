@@ -1,0 +1,68 @@
+@import '~antd/dist/antd.css';
+
+html {
+  background-size: cover;
+}
+
+.body {
+  min-height: 100%;
+  height: auto;
+}
+
+.page {
+  min-height: 100%;
+  height: auto;
+}
+
+/* Singin Page */
+.page.signin {
+  background-color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+.page.signin .plate {
+  background-color: #fff;
+  border: 1px solid rgb(221, 236, 248);
+}
+
+/* Profile Page */
+.page.profile {
+  background-color: #f7f7f7;
+  height: 100vh;
+}
+
+
+
+/* Desktop */
+@media (min-width: 1025px) {}
+
+/* Tablet and bigger*/
+@media (min-width: 768px) {
+  .page.signin .plate {
+    width: 400px;
+    padding: 16px;
+    border-radius: 5px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page.signin .plate {
+    width: 60%;
+    padding: 16px;
+    border-radius: 0px;
+  }
+
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .page.signin .plate {
+    width: 100%;
+    padding: 16px;
+    border-radius: 0px;
+  }
+}

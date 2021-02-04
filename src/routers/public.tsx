@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
-import { isSignin } from '../api/index';
+import { isSignin } from '../services/index';
 
 interface PublicRouteProps extends RouteProps {
     restricted: boolean

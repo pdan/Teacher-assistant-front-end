@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 // import { isReturnStatement } from 'typescript';
-import { isSignin } from '../api/index';
+import { isSignin } from '../services/index';
 
 interface PrivateRouteProps extends RouteProps {
     component: React.ComponentClass
