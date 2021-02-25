@@ -2,6 +2,7 @@
   "name": "teacher-front",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "@testing-library/jest-dom": "^5.11.6",
@@ -16,6 +17,7 @@
     "@types/react-router-dom": "^5.1.6",
     "antd": "^4.9.4",
     "chart.js": "^2.9.4",
+    "history": "^4.10.1",
     "i18next": "^19.8.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

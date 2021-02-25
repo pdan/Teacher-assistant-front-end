@@ -1,13 +1,15 @@
 import React from 'react';
-import { Route, Redirect, RouteProps } from 'react-router-dom';
+import { Route, Redirect, RouteProps,RouteComponentProps } from 'react-router-dom';
+import { TranslationProps } from "react-i18next";
 // import { isReturnStatement } from 'typescript';
 import { isSignin } from '../services/index';
 
 interface PrivateRouteProps extends RouteProps {
-    component: React.ComponentClass
+    component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
 }
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, ...rest }) => {
+const PrivateRoute: React.FC<any> = ({ component: Component, ...rest }) => {
+    console.log(isSignin())
     return (
 
         // Show the component only when the user is logged in

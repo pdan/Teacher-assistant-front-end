@@ -1,8 +1,16 @@
 import React from 'react';
+import { useTranslation, withTranslation, WithTranslation } from "react-i18next";
+import { withRouter, RouteComponentProps, Link, useHistory } from 'react-router-dom';
 
+interface Props {
 
+}
 
-class Index extends React.Component {
+interface State {
+   
+}
+
+class Index extends React.Component<Props & RouteComponentProps & WithTranslation> {
     render() {
         return (
             <div className="index">This is index page</div>
@@ -10,4 +18,4 @@ class Index extends React.Component {
     }
 }
 
-export default Index
+export default withTranslation()(withRouter(Index))

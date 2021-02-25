@@ -1,8 +1,16 @@
 import React from 'react';
+import { useTranslation, withTranslation, WithTranslation } from "react-i18next";
+import { withRouter, RouteComponentProps, Link, useHistory } from 'react-router-dom';
 
+interface Props {
 
+}
 
-class Dashboard extends React.Component {
+interface State {
+   
+}
+
+class Dashboard extends React.Component<Props & RouteComponentProps & WithTranslation> {
     render() {
         return (
             <div className="dashboard">This is dashboard page</div>
@@ -10,4 +18,4 @@ class Dashboard extends React.Component {
     }
 }
 
-export default Dashboard
+export default withTranslation()(withRouter(Dashboard))

@@ -13,3 +13,14 @@ export interface UserProfile {
     country: string
     city: string
 }
+
+export interface User {
+    id?: string,
+    phone: string,
+    password: string,
+    userProfile: UserProfile
+}
+
+export interface UserSettings {
+    language: string
+}
