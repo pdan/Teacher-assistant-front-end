@@ -1,8 +1,12 @@
 {
     "Signin": "ورود",
-    "Username": "نام کاربری",
+    "Sign Up": "ثبت نام",
+    "Phone Number": "شماره همراه",
     "Password": "رمز عبور",
+    "Re Password": "رمز عبور مجدد",
     "Remember me": "بخاطر سپرده شود",
     "Please input your username": "لطفا رمز عبورتان را وارد کنید!",
-    "Please input your password": "لطفا رمز عبورتان را وارد کنید!"
+    "Please input your password": "لطفا رمز عبورتان را وارد کنید!",
+    "or Signin": "به سمت ورود",
+    "or Signup": "به سمت ثبت نام"
 }

@@ -23,13 +23,14 @@ class UserSignup extends React.Component<Props & RouteComponentProps & WithTrans
    }
 
    render() {
+      const {t} = this.props
       return (
          <Layout className="page signin">
             <div className="plate">
                <img src="/assets/img/personal-growth.png" alt="" />
                <Form className="form" onFinish={this.onSignup}>
                   <Item
-                     label="Phone Number"
+                     label={t("Phone Number")}
                      name="phone"
                      rules={[{ required: true, message: 'Please enter phone number!' }]}
                      labelCol={{ span: 8 }}
@@ -39,9 +40,9 @@ class UserSignup extends React.Component<Props & RouteComponentProps & WithTrans
                   </Item>
 
                   <Item
-                     label="Password"
+                     label={t("Password")}
                      name="password"
-                     rules={[{ required: true, message: 'Please enter password!' }]}
+                     rules={[{ required: true, message: t('Please enter password!') }]}
                      labelCol={{ span: 8 }}
                      wrapperCol={{ span: 16 }}
                   >
@@ -49,9 +50,9 @@ class UserSignup extends React.Component<Props & RouteComponentProps & WithTrans
                   </Item>
 
                   <Item
-                     label="Re Password"
+                     label={t("Re Password")}
                      name="repeatPassword"
-                     rules={[{ required: true, message: 'Please enter repeat password!' }]}
+                     rules={[{ required: true, message: t('Please enter repeat password!') }]}
                      labelCol={{ span: 8 }}
                      wrapperCol={{ span: 16 }}
                   >
@@ -59,8 +60,8 @@ class UserSignup extends React.Component<Props & RouteComponentProps & WithTrans
                   </Item>
 
                   <Item style={{textAlign: 'center'}}>
-                     <Button type="primary" htmlType="submit" style={{ width: '100%', marginBottom: '20px' }}>Sign Up</Button>
-                     <Link to="/user/signin" >or Signin</Link>
+                     <Button type="primary" htmlType="submit" style={{ width: '100%', marginBottom: '20px' }}>{t('Sign Up')}</Button>
+                     <Link to="/user/signin" >{t('or Signin')}</Link>
                   </Item>
                </Form>
             </div>

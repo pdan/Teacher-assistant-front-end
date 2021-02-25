@@ -32,13 +32,14 @@ class UserSignin extends React.Component<Props & RouteComponentProps & WithTrans
    }
 
    render() {
+      const {t} = this.props
       return (
          <Layout className="page signin">
             <div className="plate">
                <img src="/assets/img/personal-growth.png" alt="" />
                <Form className="form" onFinish={this.onSignin}>
                   <Item
-                     label="Phone Number"
+                     label={t("Phone Number")}
                      name="phone"
                      rules={[{ required: true, message: 'Please enter phone number!' }]}
                      labelCol={{ span: 8 }}
@@ -48,7 +49,7 @@ class UserSignin extends React.Component<Props & RouteComponentProps & WithTrans
                   </Item>
 
                   <Item
-                     label="Password"
+                     label={t("Password")}
                      name="password"
                      rules={[{ required: true, message: 'Please enter password!' }]}
                      labelCol={{ span: 8 }}
@@ -58,8 +59,8 @@ class UserSignin extends React.Component<Props & RouteComponentProps & WithTrans
                   </Item>
 
                   <Item style={{textAlign: 'center'}}>
-                     <Button type="primary" htmlType="submit" style={{ width: '100%', marginBottom: '20px' }}>Sign In</Button>
-                     <Link to="/user/signup" >or Signup</Link>
+                     <Button type="primary" htmlType="submit" style={{ width: '100%', marginBottom: '20px' }}>{t('Signin')}</Button>
+                     <Link to="/user/signup" >{t('or Signup')}</Link>
                   </Item>
                </Form>
                
