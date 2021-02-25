@@ -31,7 +31,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
       this.onSubmitSettingsForm = this.onSubmitSettingsForm.bind(this)
    }
 
-   state:State = {
+   state: State = {
       profile: {} as UserProfile
    }
 
@@ -48,22 +48,22 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
          const userSettings: UserSettings = this.settingsForm.current.getFieldsValue()
          setLanguage(userSettings.language, true)
       }
-      
+
    }
 
    componentDidMount() {
-      this.settingsForm.current?.setFieldsValue({language: 'fa'})
+      this.settingsForm.current?.setFieldsValue({ language: 'fa' })
    }
 
    render() {
-      
+      const { t } = this.props
       return (
          <Layout className="page user">
             <PageHeader
                className="site-page-header-responsive"
                onBack={() => window.history.back()}
-               title="User"
-               subTitle="Student informations"
+               title={t('User')}
+               subTitle={t('Student informations')}
                style={{ backgroundColor: '#fff' }}
             />
 
@@ -74,7 +74,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                minHeight: 280,
             }}>
                <Tabs defaultActiveKey="1">
-                  <TabPane tab="Personal Informations" key="1" >
+                  <TabPane tab={t('Personal Informations')} key="1" >
                      <Form
                         labelCol={{ span: 8 }}
                         wrapperCol={{ span: 8 }}
@@ -82,10 +82,10 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         ref={this.userProfileForm}
                      >
 
-                        <Alert message="Please fill informations correctly." closable type="info" showIcon style={{ marginBottom: '20px' }} />
+                        <Alert message={t(`Please fill informations correctly`) + '.'} closable type="info" showIcon style={{ marginBottom: '20px' }} />
 
                         <Item
-                           label="First Name"
+                           label={t('First Name')}
                            name="firstName"
                            rules={[{ required: true }]}
                         >
@@ -93,7 +93,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         </Item>
 
                         <Item
-                           label="Surname"
+                           label={t('Surname')}
                            name="surname"
                            rules={[{ required: true }]}
                         >
@@ -101,26 +101,26 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         </Item>
 
                         <Item
-                           label="Email"
+                           label={t('Email')}
                            name="email"
                            rules={[{ required: true }]}
                         >
                            <Input type="email" />
                         </Item>
 
-                        <Form.Item name="birthdate" label="Birthdate" rules={[{ required: true }]}>
+                        <Form.Item name="birthdate" label={t('Birthdate')} rules={[{ required: true }]}>
                            <DatePicker />
                         </Form.Item>
 
-                        <Form.Item name="sex" label="Sex" rules={[{ required: true }]}>
+                        <Form.Item name="sex" label={t('Sex')} rules={[{ required: true }]}>
                            <Radio.Group>
-                              <Radio value="male">Male</Radio>
-                              <Radio value="female">Female</Radio>
+                              <Radio value="female">{t('Female')}</Radio>
+                              <Radio value="male">{t('Male')}</Radio>
                            </Radio.Group>
                         </Form.Item>
 
                         <Item
-                           label="Job title"
+                           label={t('Job title')}
                            name="jobTitle"
                            rules={[{ required: true }]}
                         >
@@ -128,7 +128,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         </Item>
 
                         <Item
-                           label="Introduced By"
+                           label={t('Introduced By')}
                            name="introducedBy"
                            rules={[{ required: true }]}
                         >
@@ -136,7 +136,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         </Item>
 
                         <Item
-                           label="Second Phone Number"
+                           label={t('Second Phone Number')}
                            name="secondPhone"
                            rules={[{ required: true }]}
                         >
@@ -144,7 +144,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         </Item>
 
                         <Item
-                           label="Education"
+                           label={t('Education')}
                            name="education"
                            rules={[{ required: true }]}
                         >
@@ -152,7 +152,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         </Item>
 
                         <Item
-                           label="Country"
+                           label={t('Country')}
                            name="country"
                            rules={[{ required: true }]}
                         >
@@ -160,7 +160,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         </Item>
 
                         <Item
-                           label="City"
+                           label={t('City')}
                            name="city"
                            rules={[{ required: true }]}
                         >
@@ -168,7 +168,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         </Item>
 
                         <Item
-                           label="Address"
+                           label={t('Address')}
                            name="address"
                            rules={[{ required: true }]}
                         >
@@ -179,7 +179,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         </Item>
                      </Form>
                   </TabPane>
-                  <TabPane tab="Settings" key="2" >
+                  <TabPane tab={t('Settings')} key="2" >
                      <Form
                         labelCol={{ span: 8 }}
                         wrapperCol={{ span: 8 }}
@@ -187,7 +187,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         ref={this.settingsForm}
                      >
                         <Item
-                           label="Language"
+                           label={t('Language')}
                            name="language"
                            rules={[{ required: true }]}
                         >
@@ -197,7 +197,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                            </Select>
                         </Item>
                         <Item wrapperCol={{ offset: 8, span: 16 }}>
-                           <Button type="primary" htmlType="submit">Save</Button>
+                           <Button type="primary" htmlType="submit">{t('Save')}</Button>
                         </Item>
                      </Form>
                   </TabPane>
