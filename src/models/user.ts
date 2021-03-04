@@ -3,7 +3,7 @@ export interface UserProfile {
     firstname: string
     surname: string
     email: string
-    birthDate: number
+    birthdate: number
     sex: string
     jobTitle: string
     introducedBy: string

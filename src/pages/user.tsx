@@ -1,4 +1,5 @@
 import React from 'react';
+import moment, { Moment } from 'moment';
 import { useTranslation, withTranslation, WithTranslation } from "react-i18next";
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Layout, Menu, Select, Form, Input, Button, Radio, DatePicker, PageHeader, Tabs, Alert, Descriptions, List, Typography, Divider } from 'antd';
@@ -7,7 +8,10 @@ import { FormInstance } from 'antd/lib/form';
 
 import { UserProfile, UserSettings } from '../models/user';
 import { setLanguage, getLanguage } from '../services/configurations';
-import { saveProfile } from '../services/user';
+import { saveProfile, getProfile } from '../services/user';
+
+import 'moment/locale/zh-cn';
+import locale from 'antd/es/date-picker/locale/fa_IR';
 
 
 interface Props {
@@ -39,8 +43,8 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
    private settingsForm = React.createRef<FormInstance<UserSettings>>();
 
    async onSubmitPersonalInfoForm(profile: UserProfile) {
-      // console.log(this.userProfileForm)
-      // await saveProfile(userProfile);
+      profile.birthdate = moment(profile.birthdate).unix()
+      await saveProfile(profile);
    }
 
    async onSubmitSettingsForm(settings: UserSettings) {
@@ -51,8 +55,14 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
 
    }
 
-   componentDidMount() {
+   async componentDidMount() {
       this.settingsForm.current?.setFieldsValue({ language: 'fa' })
+      const userProfile = await getProfile()
+      if (userProfile) {
+         // @ts-ignore
+         userProfile.birthdate = moment(new Date(userProfile.birthdate * 1000))
+         this.userProfileForm.current?.setFieldsValue(userProfile)
+      }
    }
 
    render() {
@@ -86,7 +96,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
 
                         <Item
                            label={t('First Name')}
-                           name="firstName"
+                           name="firstname"
                            rules={[{ required: true }]}
                         >
                            <Input type="text" />
@@ -108,7 +118,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                            <Input type="email" />
                         </Item>
 
-                        <Form.Item name="birthdate" label={t('Birthdate')} rules={[{ required: true }]}>
+                        <Form.Item name="birthdate" label={t('Birthdate')} rules={[{ required: true }]} >
                            <DatePicker />
                         </Form.Item>
 
@@ -175,7 +185,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                            <Input.TextArea rows={4} />
                         </Item>
                         <Item wrapperCol={{ offset: 8, span: 16 }}>
-                           <Button type="primary" htmlType="submit">Save</Button>
+                           <Button type="primary" htmlType="submit">{t('Save informations')}</Button>
                         </Item>
                      </Form>
                   </TabPane>

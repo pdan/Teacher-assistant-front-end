@@ -4,7 +4,7 @@ interface HttpResponse<T> extends Response {
 
 const headers: Headers = new Headers();
 headers.append('Content-Type', 'application/json; charset=utf-8');
-headers.append('Authorizarion', localStorage.getItem('token') || '')
+headers.append('Authorization', 'Bearer ' + localStorage.getItem('token') || '')
 
 export async function http<T>(
     request: RequestInfo
