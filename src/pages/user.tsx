@@ -146,7 +146,7 @@ class User extends React.Component<Props & RouteComponentProps & WithTranslation
                         </Item>
 
                         <Item
-                           label={t('Second Phone Number')}
+                           label={t('Second phone number')}
                            name="secondPhone"
                            rules={[{ required: true }]}
                         >

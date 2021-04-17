@@ -1,5 +1,5 @@
 import { User, UserProfile } from '../models/user';
-import { get, post } from '../libs/serviceHandler'
+import { get, post } from '../libs/serviceHandler';
 export const isSignin = (): boolean => {
     const token = localStorage.getItem('token')
     if (token) {

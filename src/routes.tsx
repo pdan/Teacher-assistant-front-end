@@ -2,7 +2,8 @@ import React from "react";
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
 } from "react-router-dom";
 
 // import AuthRoute from './routers/auth-route';
@@ -17,6 +18,7 @@ import User from './pages/user';
 import Index from './pages/index';
 
 import './app.css';
+import dashboard from "./pages/dashboard";
 
 
 
@@ -24,7 +26,8 @@ export const Routes: React.FC = () => {
     return (
         <Router>
             <Switch>
-                <Route path="/" Component={Index} exact />
+                <Redirect path="/" to="/user/profile" exact />
+                <PrivateRoute roles={['teacher']} path="/dashboard"  component={dashboard} />
                 <PublicRoute  path="/user/signin" component={UserSignin} restricted />
                 <PublicRoute  path="/user/signup" component={UserSignup} restricted />
                 <PrivateRoute roles={['teacher', 'student']} path="/user/profile" component={User} />

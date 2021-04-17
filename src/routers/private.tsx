@@ -28,8 +28,8 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component, roles
             if (isSignin())
                 if (checkTheRole())
                     return <Component {...props} />
-                else return <Redirect to="/dashboard" />
-            else <Redirect to="/user/signin" />
+                else return <Redirect to="/" />
+            else return <Redirect to="/user/signin" />
         }} />
     );
 

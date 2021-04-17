@@ -103,6 +103,9 @@ img {
   background-color: #f7f7f7;
 }
 
+.table-list-item .label {
+  font-weight: bold;
+}
 
 
 /* Desktop */
